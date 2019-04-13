@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,6 +27,8 @@ public class ProductController {
 
     @Autowired
     private ProductDao productDao;
+    
+    private String resultat;
 
 
     //Récupérer la liste des produits
@@ -47,7 +50,6 @@ public class ProductController {
         return produitsFiltres;
     }
 
-
     //Récupérer un produit par son Id
     @ApiOperation(value = "Récupère un produit grâce à son ID à condition que celui-ci soit en stock!")
     @GetMapping(value = "/Produits/{id}")
@@ -60,9 +62,6 @@ public class ProductController {
 
         return produit;
     }
-
-
-
 
     //ajouter un produit
     @PostMapping(value = "/Produits")
@@ -95,14 +94,23 @@ public class ProductController {
         productDao.save(product);
     }
 
-
     //Pour les tests
     @GetMapping(value = "test/produits/{prix}")
     public List<Product>  testeDeRequetes(@PathVariable int prix) {
 
         return productDao.chercherUnProduitCher(400);
     }
-
-
+    
+    @GetMapping(value = "/AdminProduits")
+    public String calculerMargeProduit() {
+    	resultat = "{\n";
+    	productDao.findAll().stream().forEach(p -> {
+    		int marge = p.getPrix() - p.getPrixAchat();
+    		resultat += "\t\"" + p.toString() + "\": " + marge + ",\n";
+    	});
+    	resultat += "}";
+    	
+    	return resultat;
+    }
 
 }
