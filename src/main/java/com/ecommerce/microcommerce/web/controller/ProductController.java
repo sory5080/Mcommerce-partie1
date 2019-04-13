@@ -101,6 +101,7 @@ public class ProductController {
         return productDao.chercherUnProduitCher(400);
     }
     
+    //======PREMIERE PARTIE==============
     @GetMapping(value = "/AdminProduits")
     public String calculerMargeProduit() {
     	resultat = "{\n";
@@ -111,6 +112,12 @@ public class ProductController {
     	resultat += "}";
     	
     	return resultat;
+    }
+    
+  //======DEUXIEME PARTIE==============
+    @GetMapping(value = "/productTrier")
+    public List<Product> trierProduitsParOrdreAlphabetique () {
+    	return productDao.findAllByOrderByNomAsc();
     }
 
 }
