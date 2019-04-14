@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "ec2b2d66-ed1c-4da5-87d0-51e39c02d1b4",
+		"name": "TestsPostman",
+		"description": "Testes dans le cadre de l'activité donnée sur OpenClassRoom.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9090/AdminProduits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "Calcul les marges pour chaque produit et les affiche."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/ProduitTrier",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "Trier les produits par ordre alphabétique."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9090/Produits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "Ajout d'un produit."
+			},
+			"response": []
+		}
+	]
+}
